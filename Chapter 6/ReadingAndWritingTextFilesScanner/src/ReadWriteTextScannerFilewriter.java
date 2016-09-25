@@ -13,9 +13,9 @@ public class ReadWriteTextScannerFilewriter
 	public static void main(String[] args)
 	{
 		File inputFile = new File(inputPath);
-		Scanner input = null;
+		Scanner input = null; // reads
 		
-		FileWriter fw = null;
+		FileWriter fw = null; // writes
 		
 		ArrayList<String> racers = new ArrayList<String>();
 		try

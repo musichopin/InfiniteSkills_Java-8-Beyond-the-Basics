@@ -25,8 +25,10 @@ public class JPanelExample extends JPanel
 		JButton jb = new JButton("Press Me");
 //		button doesn't do anything until ActionListener anonymous class is added
 		
-		jb.setName("BUTTON_ONE");
+		jb.setName("BUTTON_ONE"); // "Press Me" yi override etmez (yerleri farklý)
 		
+//		***anonymous inner class kullanmak yerine ActionListener ý implement 
+//		eden bir metod argument'te pass edilebilirdi***
 		jb.addActionListener(new ActionListener(){
 //			actionlistener responds to jbuttonpress event
 			public void actionPerformed(ActionEvent arg0) {
@@ -36,6 +38,8 @@ public class JPanelExample extends JPanel
 				
 				jtfe.setText(name);
 //				sets the text box to what we write in pop-up dialogue			
+//				and then shows the pop-up message 
+//				(because JOptionPane.showMessageDialog is set later)
 				
 				JOptionPane.showMessageDialog(null, "Button: "
 						+ jb.getName() + " pressed!");
@@ -51,18 +55,18 @@ public class JPanelExample extends JPanel
 		JButton jb2 = new JButton("Press Me Too!");
 		jb2.setName("BUTTON_TWO");
 		jb2.addActionListener(new ButtonPressAction());
-		add(jb2); // adds to the form
+		add(jb2); // adds to the panel
 		
 		JButton jb3 = new JButton("Press Me As Well!");
 		jb3.setName("BUTTON_THREE");
 		jb3.addActionListener(new ButtonPressAction());
-		add(jb3); // adds to the form
+		add(jb3); // adds to the panel
 	}
 	
-	public void setTextFieldName(String name)
-	{
-		if (jtfe == null) throw new IllegalStateException();
-		if (name == null) throw new IllegalArgumentException();
-		jtfe.setText(name);
-	}
+//	public void setTextFieldName(String name)
+//	{
+//		if (jtfe == null) throw new IllegalStateException();
+//		if (name == null) throw new IllegalArgumentException();
+//		jtfe.setText(name);
+//	}
 }
